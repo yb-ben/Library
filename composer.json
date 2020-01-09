@@ -1,0 +1,21 @@
+{
+    "name": "huyibin/library",
+    "description": "My common PHP library.",
+    "type": "library",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "YiBin Hu",
+            "email": "804141892@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Huyibin": "src/"
+        }
+    }
+}
