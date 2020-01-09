@@ -7,20 +7,18 @@ namespace Struct;
 trait Tree
 {
 
-    public function tree(){
+    public function tree($parentKey = 'parent_id',$childrenKey = 'children'){
 
         $groups = $this->all()->toArray();
         $groups = array_column($groups, null, 'id');
-        /*$func = function($groups){
 
-        };*/
         foreach ($groups as $k => &$value){
-            if($value['parent_id']){
-                $groups[$value['parent_id']]['children'][] =&$value;
+            if($value[$parentKey]){
+                $groups[$value[$parentKey]][$childrenKey][] =&$value;
             }
         }
         foreach ($groups as $k => $value){
-            if($value['parent_id']){
+            if($value[$parentKey]){
                 unset($groups[$k]);
             }
         }
