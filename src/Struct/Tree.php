@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Struct;
+namespace Huyibin\Struct;
 
 
 trait Tree
