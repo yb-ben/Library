@@ -4,31 +4,31 @@
 namespace Huyibin\Struct;
 
 
-trait Tree
+class Tree
 {
 	
-	protected $treeParentKey = 'parent_id';
-	protected $treeChildrenKey = 'nodes';
-	protected $treePrimaryKey = 'id';
 
-    public function tree($parentKey = null,$childrenKey = null,$primaryKey = null){
+    public static function tree($data,$renames = [] ,$parentKey = 'parent_id',$childrenKey = 'nodes',$primaryKey = 'id'){
 
-		$parentKey = $parentKey?:$this->treeParentKey;
-		$childrenKey = $childrenKey?:$this->treeChildrenKey;
-		$primaryKey = $primaryKey?:$this->treePrimaryKey;
 	
-        $groups = array_column($this->all()->toArray(), null, $primaryKey);
+        $groups = array_column($data, null, $primaryKey);
 		$t = [];
         foreach ($groups as $k => &$value){
+            foreach ($renames as $oldname => $newname){
+                if(isset($value[$oldname])){
+                    $value[$newname] = $value[$oldname];
+                    unset($value[$oldname]);
+                }
+            }
             if($value[$parentKey]){
                 $groups[$value[$parentKey]][$childrenKey][] =&$value;
 				$t[] = $value[$primaryKey];
 			}
         }
         foreach ($t as $k => $v){
-                unset($groups[$v]);
-            }
+
+            unset($groups[$v]);
+        }
         return $groups;
     }
-
 }
