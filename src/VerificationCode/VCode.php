@@ -23,7 +23,7 @@ class VCode{
 
     public function generate($size = 6){
 
-        $len = mb_strlen($this->str);
+        $len = mb_strlen($this->str)-1;
         $s = '';
             for($i = 0 ; $i < $size; $i++){
                 $p = random_int(0,$len);
