@@ -23,7 +23,7 @@ class JWT
 
     protected $app;
 
-    public function __construct(\Illuminate\Contracts\Foundation\Application $app)
+    public function __construct()
     {
 
         $key = env('JWT_KEY');
