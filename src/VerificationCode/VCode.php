@@ -46,7 +46,7 @@ class VCode{
 
     public  function store($identifier,$code){
 
-       return Redis::command('set',$this->key.':'.$identifier,$code,['nx','ex' => $this->expire ]);
+       return Redis::set($this->key.':'.$identifier,$code, $this->expire);
     
     }
 
