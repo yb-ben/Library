@@ -6,9 +6,10 @@ namespace Huyibin\Sms\Aliyun;
 
 use AlibabaCloud\Client\AlibabaCloud;
 use Huyibin\Sms\Events\Events\VerificationCodeSend;
+use Huyibin\Sms\SmsBase;
 use Huyibin\Sms\SmsInterface;
 
-class AliyunSms implements SmsInterface
+class AliyunSms extends SmsBase
 {
 
     protected $accessKeyId;

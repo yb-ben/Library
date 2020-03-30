@@ -32,7 +32,7 @@ class VCode{
         return $s;
     }
 
-    public function generateAndStore($identifier,$size){
+    public function generateAndStore($identifier,$size = 6){
           
         for($j = 0;$j < 3; $j++){
             $s = $this->generate($size);

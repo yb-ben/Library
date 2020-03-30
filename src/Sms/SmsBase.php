@@ -15,7 +15,7 @@ abstract class SmsBase implements SmsInterface{
      * @param string $code
      * @return Array
      */
-    public final  function sendVerificationCode(string $phoneNumber,string $code):Array{
+    public  function sendVerificationCode(string $phoneNumber,string $code):Array{
         
         $ret = $this->sendSms($phoneNumber,['code' => $code]);
         event(new VerificationCodeSend($ret));
