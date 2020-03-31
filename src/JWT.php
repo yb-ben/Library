@@ -66,7 +66,7 @@ class JWT
             'create_time' => $time,
             'token_type' => 'bearer', //令牌类型
         ];
-        return json_encode($jsonData);
+        return $jsonData;
     }
 
     //验证
