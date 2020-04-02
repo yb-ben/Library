@@ -13,7 +13,7 @@ trait SaveOneToMany{
                 $flag = 0;
                 foreach($data as $k => $v){
                     if(isset($v[$pk]) && $r->$pk === $v[$pk]){
-                        $updater && call_user_func_array($updater,[$r,$v,$model]);
+                        call_user_func_array($updater,[$r,$v,$model]);
                         unset($data[$k]);
                         $flag = 1;
                         break;
