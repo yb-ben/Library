@@ -2,7 +2,7 @@
 
 namespace Huyibin\Sms;
 
-use Huyibin\Sms\Events\Events\VerificationCodeSend;
+use Huyibin\Sms\Events\VerificationCodeSend;
 
 abstract class SmsBase implements SmsInterface{
 
@@ -16,7 +16,7 @@ abstract class SmsBase implements SmsInterface{
      * @return Array
      */
     public  function sendVerificationCode(string $phoneNumber,string $code):Array{
-        
+
         $ret = $this->sendSms($phoneNumber,['code' => $code]);
         event(new VerificationCodeSend($ret));
         return $ret;
