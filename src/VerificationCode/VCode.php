@@ -44,7 +44,7 @@ class VCode{
         $s = '';
             for($i = 0 ; $i < $size; $i++){
                 $p = random_int(0,$len);
-                $s .= $this->str{$p};
+                $s .= mb_substr($this->str,$p,1);
             }
         return $s;
     }
