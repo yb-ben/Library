@@ -1,6 +1,6 @@
 <?php
 
-namespace Huyibin\Sms\Events\Events;
+namespace Huyibin\Sms\Events;
 
 use Illuminate\Queue\SerializesModels;
 
@@ -12,7 +12,7 @@ class VerificationCodeSend{
     public $ret;
 
     public function __construct($ret)
-    {   
+    {
         $this->ret = $ret;
     }
 }
